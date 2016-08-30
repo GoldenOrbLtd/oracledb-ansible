@@ -32,7 +32,8 @@ oracle_enable_recovery: 'true'
 oracle_storage_type: 'FILE_SYSTEM_STORAGE'
 oracle_dataloc: '{{ oracle_base }}/oradata'
 oracle_recoveryloc: '{{ oracle_base }}/recovery_area'
-oracle_decline_security_updates: 'yes'
+oracle_decline_security_updates: 'true'
+oracle_security_updates_via_myoraclesupport: 'false'
 hugepages_nr: 578
 
 # Username of the host machine. We use it for restart the vagrant machine
