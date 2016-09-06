@@ -6,7 +6,7 @@
 
 # ==> Configure Linux
 - name: Remove conflicting packages
-  zypper: name{{ item }} state=absent
+  zypper: name={{ item }} state=absent
   with_items: rm_packages_list
 - name: Install required libraries
   zypper: name={{ item }} state=present
