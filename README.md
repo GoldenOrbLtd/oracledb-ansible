@@ -1,10 +1,7 @@
 # oracledb-ansible
-<!-- Piwik Image Tracker -->
-<noscript>
-<img src="http://www.link.net.gr/piwik/piwik.php?idsite=1&rec=1" style="border:0" alt="" />
-</noscript>
-<!-- End Piwik -->
-Ansible playbook to configure a CentOS/RHEL/Oracle Linux 7.1 server with Oracle 12c R1 Enterprise Edition Database
+Ansible playbook to configure a SUES 12 Linux server with Oracle 12c R1 Enterprise Edition Database.
+
+I forked [cvezalis/oracledb-ansible](https://github.com/cvezalis/oracledb-ansible) and made a few tweaks for SUSE on a branch.
 
 For run the playbook using the vagrant configuration for test it you need to:
 

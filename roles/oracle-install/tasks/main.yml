@@ -8,16 +8,16 @@
   file: state=directory path={{ installation_folder }}
 # ==> Copy installer files
 - name: Copy installer files
-  copy: src={{ item }} dest='{{ installation_folder }}/'
+  copy: src={{ item }} dest='{{ installation_folder }}/' force=no # The files are big, only copy if they don't exist
   with_items: '{{ installer_archives }}'
 
 # ==> extract files
 - name: Extract installation files
-  command: 'unzip {{ installation_folder }}/{{ item }} -d {{ installation_folder }}/'
+  command: 'unzip -o {{ installation_folder }}/{{ item }} -d {{ installation_folder }}/'
   with_items: '{{ installer_archives }}'
 
 # ==> generate response file
-- name: Gerenerate the response file for software only installation
+- name: Generate the response file for software only installation
   template: src=db_install.rsp.j2 dest={{ installation_folder }}/db_install.rsp
 
 # ==> execute installation
@@ -33,6 +33,11 @@
 - name: Execute DB home rfoot command
   command: '{{ oracle_home }}/root.sh'
   sudo_user: root
+
+
+# TODO: Figure out why the library files are 0-length - the copy below gets around it.
+# cp /oracle/app/installation/database/stage/ext/lib/libclntshcore.so.12.1 /oracle/app/oracle/product/12102/dbhome_1/lib
+# cp /oracle/app/installation/database/stage/ext/lib/libclntsh.so.12.1 /oracle/app/oracle/product/12102/dbhome_1/lib
 
 # ==> TODO: Create a new role for creating the database
 # ==> Create Listener TODO: Parameterize port, name etc

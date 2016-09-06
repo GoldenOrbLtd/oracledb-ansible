@@ -1,26 +1,24 @@
 packages_list:
-  - compat-libcap1
+  - libcap1
   - gcc
   - gcc-c++
   - glibc
-  - glibc.i686
   - glibc-devel
-  - glibc-devel.i686
   - ksh
-  - libaio.i686
+  - libaio1
   - libaio-devel
-  - libaio-devel.i686
-  #- libgcc.i686
-  - libstdc++.i686
+  - libelf-devel
+  - libstdc++6
   - libstdc++-devel
-  - libstdc++-devel.i686
-  - libXi
-  - libXi.i686
-  - libXtst
-  - libXtst.i686
+  - libXi6
+  - libXtst6
   - sysstat
   - unixODBC
+  - unixODBC-devel
+  - xdpyinfo
   - unzip
+rm_packages_list:
+  - gettext-runtime-mini
 kernel_params:
 # Shared memory and semaphore
 # look for document 226209.1 in oracle support for details

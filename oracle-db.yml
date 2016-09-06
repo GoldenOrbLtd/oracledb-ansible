@@ -1,5 +1,5 @@
 ---
-- name: Configure Oracle Linux 7 with Oracle Database 12c
+- name: Configure SUSE 12 Linux with Oracle Database 12c
   hosts: oradb
   sudo: True
   vars_files:
@@ -13,7 +13,7 @@
     - role: oracle-install
       sudo_user: '{{ oracle_user }}'
 
-  pre_tasks:
+  pre_tasks: #TODO: Do we really want this?  I think not.
     # ==> Fix hosts file. Remove hostname from local loop. A workaround for vagrant
     # adding hostname to local loop
     - name: fix host file 127.0.0.1 entry
