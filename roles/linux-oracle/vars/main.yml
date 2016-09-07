@@ -17,6 +17,7 @@ packages_list:
   - unixODBC-devel
   - xdpyinfo
   - unzip
+  - make
 rm_packages_list:
   - gettext-runtime-mini
 kernel_params:
