@@ -14,7 +14,7 @@ dbhome_name: 'dbhome_1'
 oracle_edition: 'EE'
 oracle_dba_group: dba
 oracle_oper_group: oper
-oracle_database_type: 'GENERAL_PURPOSE'
+oracle_database_type: 'GENERAL_PURPOSE' # TODO: Data warehouse?
 oracle_globalname: 'orcl.oradb3.private'
 oracle_sid: 'orcl'
 create_container_database: 'true'

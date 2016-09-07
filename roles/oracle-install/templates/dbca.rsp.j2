@@ -312,7 +312,7 @@ SYSTEMPASSWORD = {{ oracle_pass_all_users }}
 # Default value : NONE
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-EMCONFIGURATION = DBEXPRESS
+EMCONFIGURATION = "NONE"
 
 
 #-----------------------------------------------------------------------------
@@ -324,7 +324,7 @@ EMCONFIGURATION = DBEXPRESS
 # Mandatory     : No, will be picked up from DBEXPRESS_HTTPS_PORT env variable
 #                 or auto generates a free port between 5500 and 5599
 #-----------------------------------------------------------------------------
-EMEXPRESSPORT = "5500"
+# EMEXPRESSPORT = 
 
 
 #-----------------------------------------------------------------------------
@@ -837,7 +837,7 @@ GDBNAME = "orcl12.us.oracle.com"
 # Default value : NONE
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-#EMCONFIGURATION = "NONE"
+EMCONFIGURATION = "NONE"
 
 
 #-----------------------------------------------------------------------------
@@ -1727,7 +1727,7 @@ PDBNAME = "PDB1"
 # Default value : NONE
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-#EMCONFIGURATION = "NONE"
+EMCONFIGURATION = "NONE"
 
 
 #-----------------------------------------------------------------------------
@@ -1739,6 +1739,6 @@ PDBNAME = "PDB1"
 # Mandatory     : No, will be picked up from DBEXPRESS_HTTPS_PORT env variable
 #                 or auto generates a free port between 5500 and 5599
 #-----------------------------------------------------------------------------
-#EMEXPRESSPORT = ""
+# EMEXPRESSPORT = 
 
 #-----------------------*** End of configurePluggableDatabase section ***------------------------
