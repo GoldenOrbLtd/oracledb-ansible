@@ -1,0 +1,12 @@
+---
+- hosts: oradb
+  become: yes
+  tasks:
+  - name: Make a backup of the hosts file
+    command: cp /etc/hosts /etc/hosts.original
+  - name: Copy the shell script with awk magic
+    copy: src=update-hosts.sh dest=/tmp/
+  - name: Run the script
+    command: bash /tmp/update-hosts.sh
+  - name: Copy the resulting hosts file
+    command: cp /tmp/hosts /etc/hosts
