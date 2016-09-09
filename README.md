@@ -1,5 +1,5 @@
 # oracledb-ansible
-Ansible playbook to configure a SUES 12 Linux server with Oracle 12c R1 Enterprise Edition Database.
+Ansible playbook to configure a SLES 12 Linux server with Oracle 12c R1 Enterprise Edition Database.
 
 I forked [cvezalis/oracledb-ansible](https://github.com/cvezalis/oracledb-ansible) and made a few tweaks for SUSE on a branch.
 
