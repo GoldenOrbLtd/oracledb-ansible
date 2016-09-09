@@ -3,20 +3,21 @@ oracle_install_group: oinstall
 extra_groups:
   - dba
   - oper
-oracle_base: /oracle/app
+oracle_base: /opt/oracle/app
+oracle_data_base: /u01/oracle
 
 installer_archives:
   - 'linuxamd64_12102_database_1of2.zip'
   - 'linuxamd64_12102_database_2of2.zip'
 
-oracle_install_version: '12102'
+oracle_install_version: '12.1.0.2.0'
 dbhome_name: 'dbhome_1'
 oracle_edition: 'EE'
 oracle_dba_group: dba
 oracle_oper_group: oper
-oracle_database_type: 'GENERAL_PURPOSE' # TODO: Data warehouse?
-oracle_globalname: 'orcl.oradb3.private'
-oracle_sid: 'orcl'
+oracle_database_type: 'DATA_WAREHOUSE'
+oracle_globalname: 'rgrouse.kumc.edu'
+oracle_sid: 'rgrouse'
 create_container_database: 'true'
 number_of_pdbs: '1'
 oracle_conf_as_container_db: 'true'
@@ -26,15 +27,12 @@ oracle_charset: 'AL32UTF8'
 oracle_memory_option: 'false'
 # memory target
 oracle_memory_mb: 1536
-oracle_install_samples: 'true'
+oracle_install_samples: 'false'
 oracle_management_option: 'DEFAULT'
 oracle_enable_recovery: 'true'
 oracle_storage_type: 'FILE_SYSTEM_STORAGE'
-oracle_dataloc: '{{ oracle_base }}/oradata'
-oracle_recoveryloc: '{{ oracle_base }}/recovery_area'
+oracle_dataloc: '{{ oracle_data_base }}/oradata'
+oracle_recoveryloc: '{{ oracle_data_base }}/recovery_area'
 oracle_decline_security_updates: 'true'
 oracle_security_updates_via_myoraclesupport: 'false'
 hugepages_nr: 578
-
-# Username of the host machine. We use it for restart the vagrant machine
-#host_username: chris

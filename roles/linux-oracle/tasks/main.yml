@@ -44,6 +44,9 @@
 - name: Create Oracle Base directory
   file: state=directory path={{ oracle_base }} owner={{ oracle_user }} group={{ oracle_install_group }}
 
+- name: Create Oracle Data Base directory
+  file: state=directory path={{ oracle_data_base }} owner={{ oracle_user }} group={{ oracle_install_group }}
+
 # ==> Disable transparent hugepages
 - name: Copy script
   copy: src=disable_trans_hugepages.sh dest='~/disable_trans_hugepages.sh' mode=755
@@ -55,3 +58,7 @@
   sysctl: name="vm.nr_hugepages" value="{{ hugepages_nr }}" state=present
   tags:
     - hugepages
+
+- name: Configure Oracle environment variables in profile.d
+  template: src=oracle.sh.j2 dest=/etc/profile.d/oracle.sh owner=root mode="u=rw,g=r,o=r"
+  become_user: root

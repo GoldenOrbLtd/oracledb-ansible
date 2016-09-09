@@ -27,18 +27,19 @@
 # ==> execute Inventory command as root
 - name: Execute Inventoty root command
   command: '{{ inventory_location }}/orainstRoot.sh'
-  sudo_user: root
+  become_user: root
 
 # ==> execute DB home command as root
 - name: Execute DB home rfoot command
   command: '{{ oracle_home }}/root.sh'
-  sudo_user: root
+  become_user: root
 
 # ==> TODO: Create a new role for creating the database
 # ==> Create Listener TODO: Parameterize port, name etc
 - name: copy listener response file
   template: src=netca.rsp.j2 dest={{ installation_folder }}/netca.rsp
 
+# TODO: Figure out why this always fails the first time (but then using --start-at-task='Create listener using netca' works)
 - name: Create listener using netca
   command: '{{ oracle_home }}/bin/netca -silent -responseFile {{ installation_folder }}/netca.rsp'
 
@@ -59,23 +60,15 @@
 
 - name: change oratab
   lineinfile: dest='/etc/oratab' regexp='^{{ oracle_sid }}:{{ oracle_home }}:N' line='{{ oracle_sid }}:{{ oracle_home }}:Y'
-  sudo_user: root
+  become_user: root
 
 - name: copy init.d oracle script to /etc/init.d
   template: src=oradb.j2 dest=/etc/init.d/oradb mode=750
-  sudo_user: root
+  become_user: root
 
 - name: enable oradb script to run at startup
   command: 'chkconfig --add oradb'
-  sudo_user: root
-
-# You can remove it for non vagrant server.
-#- name: reboot vagrant virtual machine
-#  local_action: shell vagrant reload
-#  sudo_user: '{{ host_username }}'
-#  ignore_errors: yes
-#  tags:
-#    - reboot-vagrant
+  become_user: root
 
 - name: Create trigger for autostart pluggable db's
   copy: src=start-pluggable-dbs.sh dest={{ installation_folder }}/ mode=755
