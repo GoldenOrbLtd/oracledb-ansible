@@ -2,11 +2,11 @@
 - hosts: oradb
   become: yes
   tasks:
-  - name: Create swap files
+  - name: Create swap file
     command: dd if=/dev/zero of=/mnt/swapfile bs=1024 count=1048576
-  - name: Create swap files
+  - name: Format swap file
     command: mkswap /mnt/swapfile
-  - name: Permissions
+  - name: Set appropriate permissions on the swap file
     file: path=/mnt/swapfile mode=0600
   - name: Turn on swap
     command: swapon /mnt/swapfile

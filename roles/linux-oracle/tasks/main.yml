@@ -11,8 +11,6 @@
 - name: Install required libraries
   zypper: name={{ item }} state=present
   with_items: packages_list
-# TODO: Do we need to deal with SUSE firewall? - name: Disable Firewall Deamon (firewalld)
-  #service: name=firewalld state=stopped enabled=no
 - name: Change kernel parameters
   sysctl: name="{{ item.key }}" value="{{ item.value }}" state=present
   with_dict: kernel_params
