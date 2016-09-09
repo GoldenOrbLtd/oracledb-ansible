@@ -34,11 +34,6 @@
   command: '{{ oracle_home }}/root.sh'
   sudo_user: root
 
-
-# TODO: Figure out why the library files are 0-length - the copy below gets around it.
-# cp /oracle/app/installation/database/stage/ext/lib/libclntshcore.so.12.1 /oracle/app/oracle/product/12102/dbhome_1/lib
-# cp /oracle/app/installation/database/stage/ext/lib/libclntsh.so.12.1 /oracle/app/oracle/product/12102/dbhome_1/lib
-
 # ==> TODO: Create a new role for creating the database
 # ==> Create Listener TODO: Parameterize port, name etc
 - name: copy listener response file
