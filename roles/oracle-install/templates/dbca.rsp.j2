@@ -394,7 +394,7 @@ EMCONFIGURATION = "NONE"
 # Default value : False
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-DVCONFIGURATION = "True"
+DVCONFIGURATION = "False"
 
 #-----------------------------------------------------------------------------
 # Name          : DVOWNERNAME
@@ -404,7 +404,7 @@ DVCONFIGURATION = "True"
 # Default value : None
 # Mandatory     : Yes, if DataVault option is chosen
 #-----------------------------------------------------------------------------
-DVOWNERNAME = "dvsys"
+#DVOWNERNAME = "dvsys"
 
 #-----------------------------------------------------------------------------
 # Name          : DVOWNERPASSWORD
@@ -414,7 +414,7 @@ DVOWNERNAME = "dvsys"
 # Default value : None
 # Mandatory     : Yes, if DataVault option is chosen
 #-----------------------------------------------------------------------------
-DVOWNERPASSWORD = {{ oracle_pass_all_users }}
+#DVOWNERPASSWORD = {{ oracle_pass_all_users }}
 
 #-----------------------------------------------------------------------------
 # Name          : DVACCOUNTMANAGERNAME
@@ -424,7 +424,7 @@ DVOWNERPASSWORD = {{ oracle_pass_all_users }}
 # Default value : None
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-DVACCOUNTMANAGERNAME = "dvmanager"
+#DVACCOUNTMANAGERNAME = "dvmanager"
 
 #-----------------------------------------------------------------------------
 # Name          : DVACCOUNTMANAGERPASSWORD
@@ -434,7 +434,7 @@ DVACCOUNTMANAGERNAME = "dvmanager"
 # Default value : None
 # Mandatory     : No
 #-----------------------------------------------------------------------------
-DVACCOUNTMANAGERPASSWORD = {{ oracle_pass_all_users }}
+#DVACCOUNTMANAGERPASSWORD = {{ oracle_pass_all_users }}
 
 #-----------------------------------------------------------------------------
 # Name          : OLSCONFIGURATION
@@ -627,7 +627,7 @@ SAMPLESCHEMA={{ oracle_install_samples }}
 # Default value : None
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
-MEMORYPERCENTAGE = "80"
+MEMORYPERCENTAGE = {{ oracle_memory_percentage }}
 
 #-----------------------------------------------------------------------------
 # Name          : DATABASETYPE
@@ -637,7 +637,7 @@ MEMORYPERCENTAGE = "80"
 # Default value : MULTIPURPOSE
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
-#DATABASETYPE = "MULTIPURPOSE"
+DATABASETYPE = {{ oracle_database_type }}
 
 #-----------------------------------------------------------------------------
 # Name          : AUTOMATICMEMORYMANAGEMENT
@@ -647,7 +647,7 @@ MEMORYPERCENTAGE = "80"
 # Default value : TRUE
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
-AUTOMATICMEMORYMANAGEMENT = "FALSE"
+AUTOMATICMEMORYMANAGEMENT = {{ oracle_memory_option }}
 
 #-----------------------------------------------------------------------------
 # Name          : TOTALMEMORY
@@ -657,7 +657,7 @@ AUTOMATICMEMORYMANAGEMENT = "FALSE"
 # Default value : 
 # Mandatory     : NO
 #-----------------------------------------------------------------------------
-TOTALMEMORY = {{ oracle_memory_mb }}
+#TOTALMEMORY = 
 
 
 #-----------------------*** End of CREATEDATABASE section ***------------------------

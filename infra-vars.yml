@@ -3,7 +3,7 @@ oracle_install_group: oinstall
 extra_groups:
   - dba
   - oper
-oracle_base: /opt/oracle/app
+oracle_base: /u01/oracle
 oracle_data_base: /u01/oracle
 
 installer_archives:
@@ -18,18 +18,17 @@ oracle_oper_group: oper
 oracle_database_type: 'DATA_WAREHOUSE'
 oracle_globalname: 'rgrouse.kumc.edu'
 oracle_sid: 'rgrouse'
-create_container_database: 'true'
-number_of_pdbs: '1'
-oracle_conf_as_container_db: 'true'
+create_container_database: 'false'
+oracle_conf_as_container_db: 'false'
+number_of_pdbs: '0'
 pdb_prefix: 'db'
 oracle_pdb_name: 'db01'
 oracle_charset: 'AL32UTF8'
 oracle_memory_option: 'false'
-# memory target
-oracle_memory_mb: 1536
+oracle_memory_percentage: 80
 oracle_install_samples: 'false'
 oracle_management_option: 'DEFAULT'
-oracle_enable_recovery: 'true'
+oracle_enable_recovery: 'false'
 oracle_storage_type: 'FILE_SYSTEM_STORAGE'
 oracle_dataloc: '{{ oracle_data_base }}/oradata'
 oracle_recoveryloc: '{{ oracle_data_base }}/recovery_area'
