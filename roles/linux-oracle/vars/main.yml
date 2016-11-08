@@ -25,10 +25,12 @@ kernel_params:
 # look for document 226209.1 in oracle support for details
   kernel.sem: 250 32000 100 128
   kernel.shmmni: 4096
-# 1.5 GB Shared memory 500mb for linux kernel (for 2GB virtual machine)
-  kernel.shmall: 393216
-# 1 GB Half of the physical memory (for 2GB virtual machine)
-  kernel.shmmax: 4398046511104
+# System memory is 512G, minus Linux reserved is 504G.  Give ourselves
+# 16G more free and we're left with 488G.  Divide by page size (4096)
+# and we get the shmall value below:
+  kernel.shmall: 127926272
+# Half of the memory reserved for Oracle above (bytes).
+  kernel.shmmax: 261993005056
 # For 1Gbps with 1ms latency 16MB buffer
   net.core.rmem_max: 16777216
   net.core.wmem_max: 16777216
